@@ -1,0 +1,20 @@
+---
+title: "README"
+author: "Ward, A., Rivas, S., Shenasa, A., "
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Seaside Chat - Working with Data 
+
+### Learning Outcomes
+
+1.  Understand common data frame issues and why they may arise.
+
+2.  Gain familiarity with packages and functions that may be used to solve such issues.
+
+3.  Understand the effects these issues can have when analyzing, visualizing and interpreting data.
