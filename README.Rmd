@@ -24,3 +24,27 @@ knitr::opts_chunk$set(echo = TRUE)
 Working with data can be frustrating. Collecting data is difficult and humans make mistakes meaning that often times the data we first begin to analyze and interpret can be full of flaws and mistakes. Programming languages aren't perfect either and need direction on how your data is formatted to be able to interpret it properly.
 
 We have all experienced a time when messy data (either of our own doing or others) has nearly made us pull our hair out from frustration. This can be especially true when you're just beginning to interact with a programming language for the first time. Our hope is to alleviate some of that stress and burden by giving some guidance on how to handle common data issues that can arise.
+
+### Common Challenges When Working With Data
+
+There are many different challenges you can run into when working with data. Here, we have identified six common challenges that can occur and give some examples of these issues.
+
+1.  Missing Data
+
+    Missing data can take many forms, but typically it is filled in by NAs. While NAs are useful to inform you of data that you don't have, they can also hinder data analysis and visualization. Understanding how to proceed with a data set containing NAs can be extremely helpful as you begin working with your data.
+
+    Potential useful functions include: na.omit(), is.na(), anyNA(), na.rm, replace_na() [tidyrr], and sum(is.na())
+
+2.  Inconsistent formatting
+
+1.  Data merging
+
+2.  Incomplete data
+
+3.  Incorrect data types
+
+4.  Data importation
+
+These challenges typically have easier solutions than expected, but it takes time to understand the root of the issues and how these things could potentially affect your data analysis and interpretation.
+
+In class, we will be discussing each of these challenges in small groups and how these packages and functions listed above can potentially aid us in working with our data in these scenarios. We have created a separate document as a help guide for each of these common issues to give guidance on how to handle these challenges and different scenarios in which these functions may be useful.
