@@ -33,9 +33,13 @@ There are many different challenges you can run into when working with data. Her
 
     Missing data can take many forms, but typically it is filled in by NAs. While NAs are useful to inform you of data that you don't have, they can also hinder data analysis and visualization. Understanding how to proceed with a data set containing NAs can be extremely helpful as you begin working with your data.
 
-    Potential useful functions include: na.omit(), is.na(), anyNA(), na.rm, replace_na() [tidyrr], and sum(is.na())
+    Potential useful functions include: na.omit(), is.na(), anyNA(), na.rm, tidyr::replace_na(), and sum(is.na())
 
 2.  Inconsistent formatting
+
+    When there is inconsistent formatting within your variables of your data frame, it can lead to, at best, increased number of errors and, at worst, misleading or misinterpreted data. For example, if you column titled "color" had cells with both "Purple", "purple", and "pur" all to mean the same color, R would not read those as equivalent. This is why consistent formatting and knowing how to maintain consistent formatting is extremely important.
+
+    Potential useful functions include: dplyr::mutate()::case_when() or replace() or ifelse(), unique(), tolower(), toupper(),
 
 1.  Data merging
 
