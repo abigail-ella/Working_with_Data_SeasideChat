@@ -39,16 +39,16 @@ There are many different challenges you can run into when working with data. Her
 
     When there is inconsistent formatting within your variables of your data frame, it can lead to, at best, increased number of errors and, at worst, misleading or misinterpreted data. For example, if you column titled "color" had cells with both "Purple", "purple", and "pur" all to mean the same color, R would not read those as equivalent. This is why consistent formatting and knowing how to maintain consistent formatting is extremely important.
 
-    Potential useful functions include: dplyr::mutate()::case_when() or replace() or ifelse(), unique(), tolower(), toupper(),
+    Potential useful functions include: dplyr::mutate()::case_when() or replace() or ifelse(), unique(), tolower(), toupper()
 
-1.  Data merging
+3.  Data Merging
 
-2.  Incomplete data
+    There are many times when you will need to combine two data sets together for you to have a comprehensive overview for your analysis. For example, you may have one data set with species IDs, locations, site ids, etc. while your other data set contains weights, lengths and species ID. How do you combine them? Doing this without issue can be difficult and you can run into many problems when trying to do so. It is important to select a package or function that fits your exact needs and the format of the data you are working with.
 
-3.  Incorrect data types
+    Potential useful functions include: merge(), rbind(), cbind(), dplyr::bind_rows(), dplyr::bind_cols()
 
-4.  Data importation
+4.  
 
 These challenges typically have easier solutions than expected, but it takes time to understand the root of the issues and how these things could potentially affect your data analysis and interpretation.
 
-In class, we will be discussing each of these challenges in small groups and how these packages and functions listed above can potentially aid us in working with our data in these scenarios. We have created a separate document as a help guide for each of these common issues to give guidance on how to handle these challenges and different scenarios in which these functions may be useful.
+In class, we will be discussing each of these challenges in small groups and how these packages and functions listed above can potentially aid us in working with our data. We have created a separate document as a help guide for each of these common issues to give guidance on how to handle these challenges in different scenarios.
