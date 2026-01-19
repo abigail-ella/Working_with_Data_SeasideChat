@@ -29,7 +29,7 @@ We have all experienced a time when messy data (either of our own doing or other
 
 There are many different challenges you can run into when working with data. Here, we have identified six common challenges that can occur and give some examples of these issues.
 
-1.  Missing Data
+1.  Missing data
 
     Missing data can take many forms, but typically it is filled in by NAs. While NAs are useful to inform you of data that you don't have, they can also hinder data analysis and visualization. Understanding how to proceed with a data set containing NAs can be extremely helpful as you begin working with your data.
 
@@ -41,13 +41,17 @@ There are many different challenges you can run into when working with data. Her
 
     Potential useful functions include: dplyr::mutate()::case_when() or replace() or ifelse(), unique(), tolower(), toupper()
 
-3.  Data Merging
+3.  Data merging
 
     There are many times when you will need to combine two data sets together for you to have a comprehensive overview for your analysis. For example, you may have one data set with species IDs, locations, site ids, etc. while your other data set contains weights, lengths and species ID. How do you combine them? Doing this without issue can be difficult and you can run into many problems when trying to do so. It is important to select a package or function that fits your exact needs and the format of the data you are working with.
 
     Potential useful functions include: merge(), rbind(), cbind(), dplyr::bind_rows(), dplyr::bind_cols()
 
-4.  
+4.  Mismatched row/ column lengths
+
+    This can be a problem when attempting to merge data frames of different lengths. When you have data frames that have different numbers of rows and columns, R has trouble merging them easily. Instead, it is easiest to ensure both have equivalent lengths prior to merging.
+
+    Potential useful functions:
 
 These challenges typically have easier solutions than expected, but it takes time to understand the root of the issues and how these things could potentially affect your data analysis and interpretation.
 
