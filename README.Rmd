@@ -68,3 +68,7 @@ There are many different challenges you can run into when working with data. Her
 These challenges typically have easier solutions than expected, but it takes time to understand the root of the issues and how these things could potentially affect your data analysis and interpretation.
 
 In class, we will be discussing each of these challenges in small groups and how these packages and functions listed above can potentially aid us in working with our data. We have created a separate document as a help guide for each of these common issues to give guidance on how to handle these challenges in different scenarios.
+
+### Mastery of Learning Outcomes
+
+A mastery of these learning outcomes will primarily be students understanding that many challenges arise when working with data. These issues are common and shouldn't cause anyone to be afraid of stepping into a programming language for the first time, but this lesson will give students a starting place to be prepared for some of the more common errors they may interact with in their journey.
