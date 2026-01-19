@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Seaside Chat - Working with Data 
+# Seaside Chat - Working with Data
 
 ### Learning Outcomes
 
@@ -51,7 +51,15 @@ There are many different challenges you can run into when working with data. Her
 
     This can be a problem when attempting to merge data frames of different lengths. When you have data frames that have different numbers of rows and columns, R has trouble merging them easily. Instead, it is easiest to ensure both have equivalent lengths prior to merging.
 
-    Potential useful functions:
+    Potential useful functions: plyr::rbind.fill(), plyr::cbind.fill(), sjosmooth, pad()
+
+5.  Incorrect column types
+
+    When reading in your data in R, readr will attempt to automatically assign column types. However, this may not always be done correctly and you may need to specify the type for each column in your data frame. A character, for example, will be treated differently than a numeric data type.
+
+    Potential useful functions: as.numeric(), as.character(), as.factor(), round(), sprintf()
+
+6.  Importing data error
 
 These challenges typically have easier solutions than expected, but it takes time to understand the root of the issues and how these things could potentially affect your data analysis and interpretation.
 
