@@ -1,0 +1,19 @@
+---
+title: "Common Challenges Working With Data"
+author: "Ward, A, Rivas, S., Shenasa, A."
+format: 
+  pdf: default
+editor: visual
+---
+
+## The Burdens of Messy Data
+
+Working with data can be frustrating. Collecting data is difficult and humans make mistakes meaning that often times the data we first begin to analyze and interpret can be full of flaws and mistakes. Programming languages aren't perfect either and need direction on how your data is formatted to be able to interpret it properly.
+
+We have all experienced a time when messy data (either of our own doing or others) has nearly made us pull our hair out from frustration. This can be especially true when you're beginning to interact with a programming language for the first time. Our hope is to alleviate some of that stress and burden by giving some guidance on how to handle common data issues that can arise.
+
+Here, we've narrowed down six of the more common challenges we have experienced while analyzing and visualizing data. We have broken down how these challenges may arise and given some suggestions and examples on how to proceed.
+
+## Our Top Six Data Challenges
+
+1.  ***Missing Data***
