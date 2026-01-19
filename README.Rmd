@@ -61,6 +61,10 @@ There are many different challenges you can run into when working with data. Her
 
 6.  Importing data error
 
+    Importing your data set is typically an important first step and running into issues here can be a frustrating entry into your data analysis. However, if you are running into errors at this stage, there are a few functions that may be useful to know.
+
+    Potential useful functions: setwd(), read.csv(), read.delim(), read_tsv()
+
 These challenges typically have easier solutions than expected, but it takes time to understand the root of the issues and how these things could potentially affect your data analysis and interpretation.
 
 In class, we will be discussing each of these challenges in small groups and how these packages and functions listed above can potentially aid us in working with our data. We have created a separate document as a help guide for each of these common issues to give guidance on how to handle these challenges in different scenarios.
