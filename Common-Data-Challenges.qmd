@@ -20,7 +20,20 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
     In R, missing values in a data set are often represented by NA. This will either be from blank cells being filled in with NAs as the data frame is uploaded or if the uploaded data frame already contains NAs rather than blank cells. However, this can get messy for a number of reasons when NAs are mislabeled (i.e. N/A vs. N.A. vs. NA - which we deal with in our *Inconsistent Formatting* section), when you don't know how many missing values there are, or when they harm the visualization or interpretation of your data.
 
--   Checking data set for missing values- (is.na)
+-   Checking data set for missing values
+
+    If you have missing values in your data set, a good first step is simply to check for the presence of NAs. This will give an output of TRUE or FALSE based on the presence of missing values.
+
+    ```{r}
+    #| output: TRUE
+
+    x <- c(8,12,NA,19,2,NA,99,4,78,1,32,NA)
+    is.na(x)
+    ```
+
+-   Counting missing values
+
+    If the amo
 
 -   Excluding missing values- (na.omit na.rm)
 
