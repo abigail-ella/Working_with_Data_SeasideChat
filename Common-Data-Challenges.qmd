@@ -37,6 +37,7 @@ Here, we've narrowed down six of the more common challenges we have experienced 
     Once the presence of NA values have been identified, we can check how many NA values are present. This can be especially helpful with larger data sets with many rows of data. This will give a number as an output of how many NA values are present.
 
     ```{r}
+    #| output: TRUE
     y <- c(9,13,NA,24,17,15,3,NA,2,13,29,30,12,5,67,NA,92,46,73,NA,12,68,23,12,14,30,54,NA,12,90,43,21,68,54,3,2,90,52,12,NA,13,NA,24,17,15,3,NA,2,13,29,30,12,5,67,NA)
 
     sum(is.na(y))
@@ -50,6 +51,7 @@ Here, we've narrowed down six of the more common challenges we have experienced 
     na.omit removes missing values from the data (vector, matrix, or data frame). We can then check using sum(is.na()) to see if all NA values have been removed.
 
     ```{r}
+    #| output: TRUE
     cleaned_y <- na.omit(y)
 
     sum(is.na(cleaned_y))
@@ -58,6 +60,7 @@ Here, we've narrowed down six of the more common challenges we have experienced 
     Alternativley, na.rm can be used to ignore missing values during a calculation rather than removing them from the entire data set. This is an argument used within a function rather than a standalone function like na.omit.
 
     ```{r}
+    #| output: TRUE
     na.rm = TRUE
     summary(y)
     ```
