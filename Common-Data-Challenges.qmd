@@ -44,7 +44,7 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
     ```
 
--   Excluding missing values- (na.omit na.rm)
+-   Excluding missing values
 
     Omitting NA values can be an import step to ensuring standard R functions and statistical models run properly and avoid skewed results (depending on the source of NA values). Several functions like na.omit and na.rm can be used to exclude the missing values.
 
@@ -57,12 +57,19 @@ Here, we've narrowed down six of the more common challenges we have experienced 
     sum(is.na(cleaned_y))
     ```
 
-    Alternativley, na.rm can be used to ignore missing values during a calculation rather than removing them from the entire data set. This is an argument used within a function rather than a standalone function like na.omit.
+    Alternatively, na.rm can be used to ignore missing values during a calculation rather than removing them from the entire data set. This is an argument used within a function rather than a standalone function like na.omit. For example, when we try to take the mean of our data set with missing values, it returns "NA".
 
     ```{r}
     #| output: TRUE
-    na.rm = TRUE
-    summary(y)
+    mean(y)
+    ```
+
+    But, if we include na.rm = TRUE, we can get the average without having to use our cleaned_y data set.
+
+    ```{r}
+    #| output: TRUE
+    mean(y, na.rm = TRUE)
+    mean(cleaned_y)
     ```
 
 -   Imputing NAs
