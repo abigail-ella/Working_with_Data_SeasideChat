@@ -111,10 +111,38 @@ Here, we've narrowed down six of the more common challenges we have experienced 
     messy_df$response
     ```
 
-2.  ***Data Merging***
+-   Leading or trailing spaces
 
-3.  ***Mismatched Row/Column Lengths***
+    Inputting data manually can lead to additional spacing in places leading to unintended hidden characters. These sometimes will need to be removed to help with consistency in your data.
 
-4.  ***Incorrect Column Types***
+    ```{r}
+    #| output: TRUE
+    messy_df$color <- trimws(messy_df$color)
+    messy_df$response <- trimws(messy_df$response)
 
-5.  ***Importing Data Error***
+    messy_df$color
+    messy_df$response
+    ```
+
+-   Misspelled words/ multiple labels for one variable
+
+    This will also lead to categorizing specific variables differently even if they are equivalent. But you can reformat your data to read them all as a single variable.
+
+    ```{r}
+    #| output: TRUE
+    messy_df$color[messy_df$color == "or"] <- "orange"
+    messy_df$color[messy_df$color == "blu"] <- "blue"
+
+    messy_df$color
+    ```
+
+-   Numbers written as text
+
+    Changing numbers saved as text to numeric can be helpful when analyzing data. If it makes sense for this to be changed for the type of data you have, there is an easy way to do that.
+
+    ```{r}
+    #| output: TRUE
+    messy_df$score[messy_df$score == "three"] <- "3"
+
+    messy_df$score
+    ```
