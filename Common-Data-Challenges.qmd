@@ -72,7 +72,18 @@ Here, we've narrowed down six of the more common challenges we have experienced 
     mean(cleaned_y)
     ```
 
--   Imputing NAs
+-   Replacing NAs
+
+    Sometimes replacing NA values can be helpful either to approximate these values or to change them to a numeric value. If we wanted to replace all NAs in our vector with an average, we would simply take a subset of the vector that includes only NAs and set that equal to the value of our mean.
+
+    ```{r}
+    #| output: TRUE
+    #Here we take all NAs in vector y and set them equal to our mean of y
+    y[is.na(y)] <- mean(y, na.rm = TRUE)
+
+    #View y
+    y
+    ```
 
 2.  ***Inconsistent Formatting***
 
