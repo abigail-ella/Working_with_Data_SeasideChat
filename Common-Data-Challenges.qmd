@@ -138,16 +138,55 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
 3.  ***Merging Dataframes***
 
+4.  ***Mismatched Row/Column Length***s
 
 5.  ***Incorrect Column Types***
 
-In R, every column in a data frame has a data type (e.g., numeric, character, factor, Date). Problems happen when a column’s type doesn’t match how you want to use it. This often occurs when importing data from CSVs, Excel files, or mixed-format columns. Incorrect types can cause errors, misleading plots, or  mistakes in calculations.
+In R, every column in a data frame has a data type (e.g., numeric, character, factor, Date). Problems happen when a column’s type doesn’t match how you want to use it. This often occurs when importing data from CSVs, Excel files, or mixed-format columns. Incorrect types can cause errors, misleading plots, or mistakes in calculations.
 
--  Numbers stored as characters
-   When imputting data, sometimes columns of numbers are stored as characters (chr) or factors (factor), when you actually want them to be interpreted as numbers (num) or integers (int). This can cause problems when you try to do calculations, like finding the mean or plotting a variable. 
+-   Numbers stored as characters When imputting data, sometimes columns of numbers are stored as characters (chr) or factors (factor), when you actually want them to be interpreted as numbers (num) or integers (int). This can cause problems when you try to do calculations, like finding the mean or plotting a variable.
 
     ```{r}
     #| output: TRUE
     df$temperature <- as.numeric(df$temperature) 
     ```
 
+6.  ***Importing Data Error***
+
+Importing your data set in R is typically the first step to begin your analysis. When importing data, there are several frustrating issues you may run into.
+
+-   File path issues
+
+    Your working directory is the default location where R will look for your files to load. Issues can arise when the current working directory is not where your files are, resulting in R being unable to locate your files. To check where your working directory is set to, we can use the function getwd()
+
+    ```{r}
+    #| output: TRUE
+    getwd()
+    ```
+
+    If this is not the correct file path, we can then use setwd() to the intended file path.
+
+    ```{r}
+    #| output: TRUE
+    setwd("/Users/aminashenasa/Working_with_Data_SeasideChat")
+    ```
+
+    Alternatively, to make the code accessible to users on different computers, you can use library(here) to reference the top-level of a directory of a file project rather than setwd() which only works on your own computer.
+
+    ```{r}
+    library(here)
+    ```
+
+-   Data format and structure issues
+
+    Once we are able to locate and upload a file on R, issues regarding reading the file correctly may arise. The function read.csv() is for comma-separated files.
+
+    ```{r}
+    read.csv("PlantGrowth.csv")
+    ```
+
+    -   Alternative data files
+
+        If your file uses a different separator, like tabs, semicolons, etc) you need to specify what delimiter is used. For tab separated files, we can use read.delim(), or we can use the readr package with the function read_tsv()
+
+        For files with other delimiters, we can specify the correct separator using **read.csv(file, sep = ";")**
