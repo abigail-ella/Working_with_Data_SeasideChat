@@ -138,9 +138,63 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
 3.  ***Merging Dataframes***
 
-4.  ***Mismatched Row/Column Length***s
+    To properly analyze your data, you may need to combine multiple datasets that provide additional information or add more data. This can be done by adding more variables (i.e. columns) or by adding new observations (i.e. rows). A unified dataframe can simplify your data analysis process and lead to a cleaner workflow.
 
-5.  ***Incorrect Column Types***
+    ```{r}
+    #Example data frames
+    df_1<- data.frame(ID = 1:5, species = c("tiger","lion" , "jaguar", "lion", "tiger"))
+    df_2<- data.frame(ID = 4:8, species= c("lion", "jaguar", "lion", "tiger", "tiger"), age = c(4, 2, 6, 1, 4))
+
+    ```
+
+-   Merging by columns
+
+    Merging by columns is useful when two data frames contain different variables for the same observation. This can happen when data are collected from different sources or at different times but samples have the same ID.
+
+    There are several types of joins available within the merge function. A left join keeps all rows from the first dataset and matching rows from the second. A right join includes all rows from the second dataset and matching rows from the first. An inner keeps only rows with matching keys in both datasets. And an outer keeps all rows from both datasets.
+
+    ```{r}
+    #Merging by columns by the ID
+
+    #Keeps all rows from df_1 and adds matching data from df_2
+    left_join <- merge(df_1, df_2, by = "ID", all.x = TRUE)
+
+    #Keeps all rows from df_2 and adds matching data from df_1
+    right_join <- merge(df_1, df_2, by = "ID", all.y = TRUE)
+
+    #Keeps only rows where ID appears in both df_1 and df_2
+    inner_join <- merge(df_1, df_2, by = "ID")
+
+    #Keeps every row from both data frames
+    full_join <- merge(df_1, df_2, by = "ID", all = TRUE)
+    ```
+
+-   Merging by row
+
+    Merging by rows is important when two dataframes have the same variables but different observations, such as data collected at different times or from different locations. Both dataframes are supposed to have the same columns.
+
+    ```{r}
+    # Add missing column to df_1 so the structures match
+    df_1$age <- NA
+
+    merged_rows <- rbind(df_1, df_2)
+    merged_rows
+
+    ```
+
+-   A word to the wise:
+
+    -   Merging data frames can be both messy and scary work. It is a very common tool to merge data frames, but in order to make it a useful and efficient process here are a few useful tips!
+
+    -   Know your data well! Use functions like head(), str(), and summary() to understand the column names, the type of data and the underlying structure of your data set.
+
+    -   Understand merging types and how they fit your needs. The merge function allows for left, right, inner, and outer joins that all merge your data in varying ways. Know how these function and what suits your needs.
+
+    -   Row binding errors can happen when data frames don’t have the same column names or types
+
+3.  ***Mismatched Row/Column Length***s
+
+4.  ***Incorrect Column Types***
 
 In R, every column in a data frame has a data type (e.g., numeric, character, factor, Date). Problems happen when a column’s type doesn’t match how you want to use it. This often occurs when importing data from CSVs, Excel files, or mixed-format columns. Incorrect types can cause errors, misleading plots, or mistakes in calculations.
 
