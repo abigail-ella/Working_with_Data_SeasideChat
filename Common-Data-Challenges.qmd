@@ -146,3 +146,5 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
     messy_df$score
     ```
+
+3.  ***Merging Dataframes***
