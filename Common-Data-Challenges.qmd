@@ -87,10 +87,34 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
 2.  ***Inconsistent Formatting***
 
-3.  ***Data Merging***
+    One very common challenge when working with data is having inconsistent formatting in your data frame. This could mean values that mean the same thing are spelled differently, are abbreviated, or have varying capitalization. Not clearing up these issues early on can lead to confusing analyses and incorrect visualizations. Making sure your data is formatted well from the start of your data analysis journey will save many headaches in the long run.
 
-4.  ***Mismatched Row/Column Lengths***
+    ```{r}
+    messy_df <- data.frame(
+      id = 1:10,
+      color = c("Orange", "or", "orange ", "ORANGE", "blue", "Blue", "blu", "green", " Green", "green"),
+      response = c("Yes", "yes", "YES", "No", "no", "NO", " yEs ", "nO", "Yes", "no"),
+      score = c("1", "2", "three", "4", "5", "six", "7", "8", "nine", "10"),
+      group = c("A", "a", "Group A", "B", "b ", "Group B", "C", "c", "Group C", "C")
+    )
 
-5.  ***Incorrect Column Types***
+    ```
 
-6.  ***Importing Data Error***
+-   Inconsistent capitalization
+
+    Values in a column can sometimes differ only by the capitalization of the letters. "No", "no", and "NO" will all be interpreted differently by R. Therefore, making this consistent is very important if these responses hold the same interpretation.
+
+    ```{r}
+    #| output: TRUE
+    messy_df$response <- tolower(messy_df$response)
+
+    messy_df$response
+    ```
+
+2.  ***Data Merging***
+
+3.  ***Mismatched Row/Column Lengths***
+
+4.  ***Incorrect Column Types***
+
+5.  ***Importing Data Error***
