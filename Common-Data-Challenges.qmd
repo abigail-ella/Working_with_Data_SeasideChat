@@ -192,7 +192,7 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
     -   Row binding errors can happen when data frames don’t have the same column names or types
 
-3.  ***Mismatched Row/Column Length***
+4.  ***Mismatched Row/Column Length***
 
     When trying to merge dataframes, you may get errors if the dataframes have different numbers of rows or columns. It’s good to review your dataframes before importing them to try to make the merge seamless if possible, but here’s some ways you can merge mismatched lengths in R.
 
@@ -228,7 +228,7 @@ library(dplyr)
 bind_rows(df1, df2)
 ```
 
-4.  ***Incorrect Column Types***
+5.  ***Incorrect Column Types***
 
 In R, every column in a data frame has a data type (e.g., numeric, character, factor, date). Problems happen when a column’s type doesn’t match how you want to use it. This often occurs when importing data from CSVs, Excel files, or mixed-format columns. Incorrect types can cause errors, misleading plots, or  mistakes in calculations.\
 
@@ -307,7 +307,7 @@ class()
 
     as.Date() – Convert to date 
 
-***Importing Data Error***
+6.  ***Importing Data Error***
 
 Importing your data set in R is typically the first step to begin your analysis. When importing data, there are several frustrating issues you may run into.
 
