@@ -265,7 +265,7 @@ df_dates <- data.frame(
   date = c("15/01/2025", "24/04/2025", "10/09/2025"))
 
 #using base R (example)
-df_dates$date <- as.Date(df_dates$date, format = "%d/%m/%Y")
+df_dates_fixed <- as.Date(df_dates$date, format = "%d/%m/%Y")
 
 #use the lubridate package
 library(lubridate)
@@ -274,21 +274,15 @@ library(lubridate)
   #dmy() for "DD-MM-YYYY" or "DD/MM/YYYY"
 df_dates$date <- dmy(df_dates$date)
 
-#use the readr package in tidyverse 
-library(readr)
-my_data_readr <- read_csv("my_file.csv", col_types = list(
-  col1 = col_character(),
-  col2 = col_number(),
-  col3 = col_date()))
 
-#use dplyr package 
-df <- df %\>%
+#use dplyr package
+df_dates_new <- df_dates %>%
   mutate(date_new = as.Date(date, format = "%m/%d/%Y"))
-
-#use libridate within dplyr mutate() function
-df <- df %\>%
-mutate(date_date = dmy(date_char))
 ```
+
+-   You can also use the readr package in tidyverse theusing col_types function
+
+    -   library(readr) my_data_readr \<- read_csv("my_data.csv", col_types = list( col1 = col_character(), col2 = col_number(), col3 = col_date()))
 
 -   How to check the current data type of columns
 
@@ -325,11 +319,6 @@ Importing your data set in R is typically the first step to begin your analysis.
     ```
 
     If this is not the correct file path, we can then use setwd() to the intended file path.
-
-    ```{r}
-    #| output: TRUE
-    setwd("/Users/aminashenasa/Working_with_Data_SeasideChat")
-    ```
 
     Alternatively, to make the code accessible to users on different computers, you can use library(here) to reference the top-level of a directory of a file project rather than setwd() which only works on your own computer.
 
