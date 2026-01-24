@@ -192,20 +192,122 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
     -   Row binding errors can happen when data frames don’t have the same column names or types
 
-3.  ***Mismatched Row/Column Length***s
+3.  ***Mismatched Row/Column Length***
+
+    When trying to merge dataframes, you may get errors if the dataframes have different numbers of rows or columns. It’s good to review your dataframes before importing them to try to make the merge seamless if possible, but here’s some ways you can merge mismatched lengths in R.
+
+-   Mismatched row lengths
+
+```{r}
+#example - these data frames have different numbers of values 
+years <- c(2023, 2024)
+temps <- c(13.2, 13.8, 14.1)
+
+df <- data.frame(years, temps) #try running this -- did you get an error? 
+
+#this can be fixed using plyr package with the function cbind.fill()
+install.packages("str2str")
+library(str2str)
+cbind_fill(years, temps) #fills in missing values with NA 
+```
+
+-   Mismatched column names
+
+-   You try to bind rows, but data frames have different column names
+
+```{r}
+df1 <- data.frame(year = 2023, temp = 13.2)
+df2 <- data.frame(year = 2024, salinity = 33.4)
+#column names ‘temp’ and ‘salinity’ don’t match, so you can't merge
+
+#use plyr package, this time with function rbind.fill() to fill in missing values with NA 
+rbind.fill(df1, df2) 
+
+#OR use dplyr package to fill in the missing column values with NA 
+library(dplyr)
+bind_rows(df1, df2)
+```
 
 4.  ***Incorrect Column Types***
 
-In R, every column in a data frame has a data type (e.g., numeric, character, factor, Date). Problems happen when a column’s type doesn’t match how you want to use it. This often occurs when importing data from CSVs, Excel files, or mixed-format columns. Incorrect types can cause errors, misleading plots, or mistakes in calculations.
+In R, every column in a data frame has a data type (e.g., numeric, character, factor, date). Problems happen when a column’s type doesn’t match how you want to use it. This often occurs when importing data from CSVs, Excel files, or mixed-format columns. Incorrect types can cause errors, misleading plots, or  mistakes in calculations.\
 
--   Numbers stored as characters When imputting data, sometimes columns of numbers are stored as characters (chr) or factors (factor), when you actually want them to be interpreted as numbers (num) or integers (int). This can cause problems when you try to do calculations, like finding the mean or plotting a variable.
+-   Numbers stored as characters
 
-    ```{r}
-    #| output: TRUE
-    df$temperature <- as.numeric(df$temperature) 
-    ```
+    When imputting data, sometimes columns of numbers are stored as characters (chr) or factors (factor), when you actually want them to be interpreted as numbers (num) or integers (int). This can cause problems when you try to do calculations, like finding the mean or plotting a variable. 
 
-6.  ***Importing Data Error***
+```{r}
+#made-up data frame 
+date <- as.Date(c("2026-01-01", "2026-01-02", "2026-01-03", "2026-01-04", "2026-01-05"))
+location <- c("Beach", "Harbor", "Beach", "Harbor", "Beach")
+temperature_c <- c(12.5, 13.2, 12.8, 13.5, 13.0)
+
+temp_data <- data.frame(
+  date = date,
+  location = location,
+  temperature_c = temperature_c)
+
+#make sure temperature column is a numeric column 
+temp_data$temperature_c <- as.numeric(temp_data$temperature_c)
+```
+
+-   Date/Time columns imported as character or numeric 
+
+    Dates and times in files can frequently be read as simple character strings or numeric codes (especially from Excel files) rather than R's specific date type. There’s different ways to fix this issue in R, using packages or base R. 
+
+```{r}
+df_dates <- data.frame(
+  event = c("A", "B", "C"),
+  date = c("15/01/2025", "24/04/2025", "10/09/2025"))
+
+#using base R (example)
+df_dates$date <- as.Date(df_dates$date, format = "%d/%m/%Y")
+
+#use the lubridate package
+library(lubridate)
+  #ymd() for "YYYY-MM-DD" or "YYYY/MM/DD"
+  #mdy() for "MM-DD-YYYY" or "MM/DD/YYYY"
+  #dmy() for "DD-MM-YYYY" or "DD/MM/YYYY"
+df_dates$date <- dmy(df_dates$date)
+
+#use the readr package in tidyverse 
+library(readr)
+my_data_readr <- read_csv("my_file.csv", col_types = list(
+  col1 = col_character(),
+  col2 = col_number(),
+  col3 = col_date()))
+
+#use dplyr package 
+df <- df %\>%
+  mutate(date_new = as.Date(date, format = "%m/%d/%Y"))
+
+#use libridate within dplyr mutate() function
+df <- df %\>%
+mutate(date_date = dmy(date_char))
+```
+
+-   How to check the current data type of columns
+
+    If you’re not sure why your code isn’t working, an easy thing to try first is to check what the data types of your dataframe columns are stored as. This is also just good practice when you first load in a dataframe! 
+
+```{r}
+#use this function to check column data types
+class()
+```
+
+-   Other useful functions
+
+    as.numeric() – Convert to numeric (decimal numbers)
+
+    as.integer() – Convert to integer (whole numbers) or, if you want a column to round numbers, you can use round()
+
+    as.character() – Convert to character (text/strings)
+
+    as.factor() – Convert to a factor (categorical data)
+
+    as.Date() – Convert to date 
+
+***Importing Data Error***
 
 Importing your data set in R is typically the first step to begin your analysis. When importing data, there are several frustrating issues you may run into.
 
