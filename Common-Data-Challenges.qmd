@@ -286,12 +286,9 @@ df_dates_new <- df_dates %>%
 
 -   How to check the current data type of columns
 
-    If you’re not sure why your code isn’t working, an easy thing to try first is to check what the data types of your dataframe columns are stored as. This is also just good practice when you first load in a dataframe! 
+    If you’re not sure why your code isn’t working, an easy thing to try first is to check what the data types of your dataframe columns are stored as using the class() function. This is also just good practice when you first load in a dataframe! 
 
-```{r}
-#use this function to check column data types
-class()
-```
+<!-- -->
 
 -   Other useful functions
 
