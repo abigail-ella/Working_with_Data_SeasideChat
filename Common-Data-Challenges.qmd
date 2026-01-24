@@ -210,14 +210,13 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
 ```{r}
 #this can be fixed using plyr package with the function cbind.fill()
-install.packages("str2str")
 library(str2str)
 cbind_fill(years, temps) #fills in missing values with NA 
 ```
 
 -   Mismatched column names
 
--   You try to bind rows, but data frames have different column names
+    You try to bind rows, but data frames have different column names
 
 ```{r}
 df1 <- data.frame(year = 2023, temp = 13.2)
