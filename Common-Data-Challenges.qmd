@@ -198,13 +198,16 @@ Here, we've narrowed down six of the more common challenges we have experienced 
 
 -   Mismatched row lengths
 
+    ```{r}
+    # | error: true
+    #example - these data frames have different numbers of values 
+    years <- c(2023, 2024)
+    temps <- c(13.2, 13.8, 14.1)
+
+    df <- data.frame(years, temps) #try running this -- did you get an error? 
+    ```
+
 ```{r}
-#example - these data frames have different numbers of values 
-years <- c(2023, 2024)
-temps <- c(13.2, 13.8, 14.1)
-
-df <- data.frame(years, temps) #try running this -- did you get an error? 
-
 #this can be fixed using plyr package with the function cbind.fill()
 install.packages("str2str")
 library(str2str)
