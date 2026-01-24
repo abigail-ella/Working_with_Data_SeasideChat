@@ -223,7 +223,8 @@ df1 <- data.frame(year = 2023, temp = 13.2)
 df2 <- data.frame(year = 2024, salinity = 33.4)
 #column names ‘temp’ and ‘salinity’ don’t match, so you can't merge
 
-#use plyr package, this time with function rbind.fill() to fill in missing values with NA 
+#use plyr package, this time with function rbind.fill() to fill in missing values with NA
+library(plyr)
 rbind.fill(df1, df2) 
 
 #OR use dplyr package to fill in the missing column values with NA 
