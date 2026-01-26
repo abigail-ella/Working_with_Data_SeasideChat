@@ -1,6 +1,6 @@
 ---
 title: "Common Challenges Working With Data"
-author: "Ward, A, Rivas, S., Shenasa, A."
+author: "Ward, A., Rivas, S., Shenasa, A."
 format: 
   pdf: default
 editor: visual
