@@ -3,7 +3,7 @@ title: "README.qmd"
 author: "Ward, A., Rivas, S., Shenasa, A."
 format: html
 editor: visual
-output-file: gfm
+output: gfm
 ---
 
 ## Seaside Chat - Working with Data
