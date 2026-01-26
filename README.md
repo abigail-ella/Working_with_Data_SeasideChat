@@ -1,0 +1,124 @@
+# README.qmd
+Ward, A., Rivas, S., Shenasa, A.
+
+## Seaside Chat - Working with Data
+
+### Learning Outcomes
+
+1.  Understand common data frame issues and why they may arise.
+
+2.  Gain familiarity with packages and functions that may be used to
+    solve such issues.
+
+3.  Understand the effects these issues can have when analyzing,
+    visualizing and interpreting data.
+
+### Why are we teaching about common data problems?
+
+Working with data can be frustrating. Collecting data is difficult and
+humans make mistakes meaning that often times the data we first begin to
+analyze and interpret can be full of flaws and mistakes. Programming
+languages aren’t perfect either and need direction on how your data is
+formatted to be able to interpret it properly.
+
+We have all experienced a time when messy data (either of our own doing
+or others) has nearly made us pull our hair out from frustration. This
+can be especially true when you’re just beginning to interact with a
+programming language for the first time. Our hope is to alleviate some
+of that stress and burden by giving some guidance on how to handle
+common data issues that can arise.
+
+### Common Challenges When Working With Data
+
+There are many different challenges you can run into when working with
+data. Here, we have identified six common challenges that can occur and
+give some examples of these issues.
+
+1.  Missing data
+
+    Missing data can take many forms, but typically it is filled in by
+    NAs. While NAs are useful to inform you of data that you don’t have,
+    they can also hinder data analysis and visualization. Understanding
+    how to proceed with a data set containing NAs can be extremely
+    helpful as you begin working with your data.
+
+    Potential useful functions include: na.omit(), is.na(), anyNA(),
+    na.rm, tidyr::replace_na(), and sum(is.na())
+
+2.  Inconsistent formatting
+
+    When there is inconsistent formatting within your variables of your
+    data frame, it can lead to, at best, increased number of errors and,
+    at worst, misleading or misinterpreted data. For example, if you
+    column titled “color” had cells with both “Purple”, “purple”, and
+    “pur” all to mean the same color, R would not read those as
+    equivalent. This is why consistent formatting and knowing how to
+    maintain consistent formatting is extremely important.
+
+    Potential useful functions include: dplyr::mutate()::case_when() or
+    replace() or ifelse(), unique(), tolower(), toupper()
+
+3.  Data merging
+
+    There are many times when you will need to combine two data sets
+    together for you to have a comprehensive overview for your analysis.
+    For example, you may have one data set with species IDs, locations,
+    site ids, etc. while your other data set contains weights, lengths
+    and species ID. How do you combine them? Doing this without issue
+    can be difficult and you can run into many problems when trying to
+    do so. It is important to select a package or function that fits
+    your exact needs and the format of the data you are working with.
+
+    Potential useful functions include: merge(), rbind(), cbind(),
+    dplyr::bind_rows(), dplyr::bind_cols()
+
+4.  Mismatched row/ column lengths
+
+    This can be a problem when attempting to merge data frames of
+    different lengths. When you have data frames that have different
+    numbers of rows and columns, R has trouble merging them easily.
+    Instead, it is easiest to ensure both have equivalent lengths prior
+    to merging.
+
+    Potential useful functions: plyr::rbind.fill(), plyr::cbind.fill(),
+    sjosmooth, pad()
+
+5.  Incorrect column types
+
+    When reading in your data in R, readr will attempt to automatically
+    assign column types. However, this may not always be done correctly
+    and you may need to specify the type for each column in your data
+    frame. A character, for example, will be treated differently than a
+    numeric data type.
+
+    Potential useful functions: as.numeric(), as.character(),
+    as.factor(), round(), sprintf()
+
+6.  Importing data error
+
+    Importing your data set is typically an important first step and
+    running into issues here can be a frustrating entry into your data
+    analysis. However, if you are running into errors at this stage,
+    there are a few functions that may be useful to know.
+
+    Potential useful functions: setwd(), read.csv(), read.delim(),
+    read_tsv()
+
+These challenges typically have easier solutions than expected, but it
+takes time to understand the root of the issues and how these things
+could potentially affect your data analysis and interpretation.
+
+In class, we will be discussing each of these challenges in small groups
+and how these packages and functions listed above can potentially aid us
+in working with our data. We have created a separate document as a help
+guide for each of these common issues to give guidance on how to handle
+these challenges in different scenarios.
+
+### Mastery of Learning Outcomes
+
+A mastery of these learning outcomes will primarily be students
+understanding that many challenges arise when working with data. These
+issues are common and shouldn’t cause anyone to be afraid of stepping
+into a programming language for the first time, but this lesson will
+give students a starting place to be prepared for some of the more
+common errors they may interact with in their journey.
